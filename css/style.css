@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap');
 
 :root {
   --bg-color: #0f0c29;
@@ -9,14 +9,58 @@
   --text-color: #f8f8f2;
   --neon-glow: 0 0 5px #f72585, 0 0 10px #7209b7, 0 0 15px #3a0ca3;
 }
+@keyframes crtFlicker {
+  0%, 100% { opacity: 0.90; }
+  50% { opacity: 1; }
+}
 
 body {
   margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background: var(--bg-gradient);
+  font-family: 'Share Tech Mono', monospace;
+  background: #0f0c29;
   color: var(--text-color);
   line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+  cursor: url('https://cur.cursors-4u.net/symbols/sym-9/sym824.cur'), auto;
+  animation: crtFlicker 120ms infinite;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 100;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, transparent 80%),
+    repeating-linear-gradient(#00f2ff10 1px, transparent 3px),
+    repeating-linear-gradient(90deg, #00f2ff10 1px, transparent 3px);
+  background-blend-mode: screen;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
 
 header {
   text-align: center;
@@ -58,8 +102,10 @@ main {
 }
 
 h1, h2, h3 {
+  font-family: 'Press Start 2P', cursive;
   color: var(--primary-color);
-  text-shadow: var(--neon-glow);
+  text-shadow: 0 0 4px #f72585, 0 0 10px #7209b7, 0 0 20px #3a0ca3;
+  text-transform: uppercase;
 }
 
 ul {
@@ -76,6 +122,10 @@ a:hover {
   text-shadow: var(--neon-glow);
 }
 
+#typewriter {
+  min-height: 2.5rem; /* or enough to hold the line without wrapping */
+}
+
 footer {
   text-align: center;
   padding: 2rem;
@@ -83,3 +133,9 @@ footer {
   background: transparent;
   color: #888;
 }
+
+main, header, nav, footer {
+  position: relative;
+  z-index: 101;
+}
+
