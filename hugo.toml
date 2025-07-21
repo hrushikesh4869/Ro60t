@@ -1,5 +1,0 @@
-baseURL = 'https://hrushikesh4869.github.io/Ro60t/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = 'papermod'
-publishDir = "docs"
