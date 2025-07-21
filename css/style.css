@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+:root {
+  --bg-color: #0f0c29;
+  --bg-gradient: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  --primary-color: #f72585;
+  --secondary-color: #7209b7;
+  --accent-color: #3a0ca3;
+  --text-color: #f8f8f2;
+  --neon-glow: 0 0 5px #f72585, 0 0 10px #7209b7, 0 0 15px #3a0ca3;
+}
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+  background: transparent;
+  color: var(--primary-color);
+  text-shadow: var(--neon-glow);
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  text-shadow: var(--neon-glow);
+  transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+  background: var(--primary-color);
+  color: #000;
+  box-shadow: var(--neon-glow);
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(15, 12, 41, 0.5);
+  border-radius: 8px;
+  box-shadow: var(--neon-glow);
+}
+
+h1, h2, h3 {
+  color: var(--primary-color);
+  text-shadow: var(--neon-glow);
+}
+
+ul {
+  list-style: square;
+  padding-left: 1.2rem;
+}
+
+a {
+  color: var(--secondary-color);
+}
+
+a:hover {
+  color: var(--primary-color);
+  text-shadow: var(--neon-glow);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9em;
+  background: transparent;
+  color: #888;
+}
