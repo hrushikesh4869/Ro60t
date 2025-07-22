@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <title>Your Name</title>
   <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <header>
-    <h1 id="typewriter" class="terminal-text"></h1>
+</head> <body> <header>
+    <h1 id="typewriter" class="terminal-text">
+        <span id="typed-text"></span>
+    </h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="resume.html">Resume</a>
@@ -19,29 +19,41 @@
   <main>
     <section>
       <h2>Welcome</h2>
-      <p>Hello! I’m a developer and writer. This site is my digital space for sharing projects, blogs, and cool resources.</p>
+      <p>Hello! I’m a Computer Engineer. This site is my digital space for sharing projects, blogs, and cool resources.</p>
     </section>
   </main>
-
   <footer>
+    <button class="flicker-toggle-icon" onclick="toggleFlicker()" title="Toggle CRT Flicker">
+        🖥️
+    </button>
     <p>© 2025 Your Name</p>
   </footer>
 
-  <script>
+<script>
   const text = "Welcome to My Website";
   let i = 0;
   const speed = 60;
+  const target = document.getElementById("typewriter");
 
   function typeWriter() {
-    if (i < text.length) {
-      document.getElementById("typewriter").innerHTML += text.charAt(i);
+    if (i <= text.length) {
+      const typed = text.substring(0, i);
+      target.innerHTML = `${typed}<span id="cursor"></span>`;
       i++;
       setTimeout(typeWriter, speed);
     }
   }
 
   window.onload = typeWriter;
-  </script>
+
+  // CRT Flicker toggle logic
+  const body = document.body;
+  body.classList.add('flicker-on');
+
+  function toggleFlicker() {
+    body.classList.toggle('flicker-on');
+  }
+</script>
 
 </body>
 </html>

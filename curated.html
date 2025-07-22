@@ -4,6 +4,99 @@
   <meta charset="UTF-8" />
   <title>Curated Reads</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(15, 12, 41, 0.5);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 2rem;
+      box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--primary-color);
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--text-color);
+      border: none;
+    }
+
+    th {
+      background-color: #1e1a3a;
+      color: var(--primary-color);
+      text-shadow: var(--neon-glow);
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    tr:not(:last-child) td {
+      border-bottom: 1px solid rgba(114, 9, 183, 0.3); /* soft row separator */
+    }
+
+    a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--primary-color);
+      text-shadow: var(--neon-glow);
+    }
+
+    .read {
+      color: #3fb950;
+      font-weight: bold;
+      text-shadow: 0 0 4px #3fb95088;
+    }
+
+    .unread {
+      color: #f85149;
+      font-weight: bold;
+      text-shadow: 0 0 4px #f8514988;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 1.5rem;
+        background: rgba(15, 12, 41, 0.6);
+        border-radius: 6px;
+        padding: 1rem;
+      }
+      tr:hover {
+         background-color: rgba(114, 9, 183, 0.2);
+         transition: background 0.2s ease-in-out;
+      }
+
+      td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+      }
+
+      td::before {
+        position: absolute;
+        left: 1rem;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: bold;
+        color: var(--primary-color);
+        content: attr(data-label);
+        text-shadow: var(--neon-glow);
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -12,17 +105,43 @@
       <a href="index.html">Home</a>
       <a href="resume.html">Resume</a>
       <a href="blog.html">Blog</a>
+      <a href="curated.html">Curated</a>
     </nav>
   </header>
 
   <main>
-    <ul>
-      <li><a href="https://overreacted.io/">Overreacted by Dan Abramov</a></li>
-      <li><a href="https://jvns.ca/">Julia Evans’ blog</a></li>
-      <li><a href="https://css-tricks.com/">CSS Tricks</a></li>
-    </ul>
+    <p>These are some of the books and blogs which I find interesting.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Blog</th>
+          <th>Topic</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Blog">
+            <a href="https://wiki.nikiv.dev/physics/" target="_blank">Blog about how to start learning Physics</a>
+          </td>
+          <td data-label="Topic">Physics</td>
+          <td data-label="Status" class="unread">Unread</td>
+        </tr>
+        <tr>
+          <td data-label="Blog">
+            <a href="https://www.cse.iitd.ac.in/~srsarangi/osbook/osbook-v0.93.pdf" target="_blank">Operating system book by Smruti Sarangi</a>
+          </td>
+          <td data-label="Topic">Operating systems</td>
+          <td data-label="Status" class="unread">Unread</td>
+        </tr>
+        <!-- Add more blog rows here -->
+      </tbody>
+    </table>
   </main>
 
-  <footer><p>© 2025 Your Name</p></footer>
+  <footer>
+    <p>© 2025 Your Name</p>
+  </footer>
 </body>
 </html>
+

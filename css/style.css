@@ -14,6 +14,76 @@
   50% { opacity: 1; }
 }
 
+.flicker-on {
+  animation: crtFlicker 120ms infinite;
+}
+
+.flicker-toggle-icon {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999; background: rgba(15, 12, 41, 0.8);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.4rem;
+  color: var(--text-color);
+  text-shadow: var(--neon-glow);
+  box-shadow: 0 0 8px var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.flicker-toggle-icon:hover {
+  background: var(--primary-color);
+  color: #000;
+  box-shadow: 0 0 12px var(--primary-color), 0 0 20px var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.flicker-toggle {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: var(--text-color);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.75rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-shadow: var(--neon-glow);
+  box-shadow: 0 0 5px var(--primary-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.flicker-toggle:hover {
+  background: var(--primary-color);
+  color: #000;
+  box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+/* Optional: Retro blinking cursor-style border */
+.flicker-toggle::after {
+  content: "";
+  position: absolute;
+  right: 0.6rem;
+  top: 0.6rem;
+  width: 2px;
+  height: 1rem;
+  background: var(--primary-color);
+  animation: blinkCursor 1s steps(2, start) infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 body {
   margin: 0;
   font-family: 'Share Tech Mono', monospace;
@@ -23,7 +93,7 @@ body {
   position: relative;
   overflow-x: hidden;
   cursor: url('https://cur.cursors-4u.net/symbols/sym-9/sym824.cur'), auto;
-  animation: crtFlicker 120ms infinite;
+  /* animation: crtFlicker 120ms infinite; */
 }
 
 body::before {
@@ -139,3 +209,19 @@ main, header, nav, footer {
   z-index: 101;
 }
 
+#cursor {
+  display: inline-block;
+  width: 0.6ch;
+  height: 1em;
+  background-color: var(--primary-color);
+  margin-left: 2px;
+  animation: blink-cursor 1s steps(2, start) infinite;
+  vertical-align: 0.1em;
+  border-radius: 1px;
+  box-shadow: var(--neon-glow);
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
